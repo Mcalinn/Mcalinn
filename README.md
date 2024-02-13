@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @Mcalinn
-- 👀 I’m interested in programming,games,programming bots 
+- 👀 I’m interested in programming,games,programming bots,Web
 - 🌱 I’m currently learning Python,JS,HTML,CSS,SQL,1C. 
 - 💞️ I’m looking to collaborate on world friendly 
 - 📫 How to reach me gera.tw.ru@gmail.com and my telegram @MCcalin
