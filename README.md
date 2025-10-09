@@ -1,5 +1,5 @@
 - not bed proger
-- 🌱 I’m currently learning Python,NodeJS,Java. 
+- 🌱 I’m currently learning NodeJS, Java, GO. 
 - 📫 How to reach me gera.tw.ru@gmail.com and my telegram @MCcalin
 
 <!---
