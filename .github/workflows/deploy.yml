@@ -16,14 +16,14 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            if [ ! -d "/var/www/java-app" ]; then
-              git clone https://github.com/Mcalinn/Mcalinn.git /var/www/java-app
+           if [ ! -d "/var/www/java-app/.git" ]; then
+            rm -rf /var/www/java-app
+            git clone https://github.com/Mcalinn/Mcalinn.git /var/www/java-app
             fi
 
             cd /var/www/java-app
-            git pull
+              git pull
 
-            docker compose up -d --build
       - name: Debug
         run: echo "${{ secrets.ZENKO1_HOST }}"  
 
@@ -46,3 +46,4 @@ jobs:
             git pull
 
             docker compose up -d --build
+            
