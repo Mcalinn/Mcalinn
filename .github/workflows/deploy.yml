@@ -17,7 +17,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             if [ ! -d "/var/www/java-app" ]; then
-              git clone https://github.com/${{ secrets.GITHUB_USERNAME }}/${{ secrets.JAVA_REPO_NAME }}.git /var/www/java-app
+              git clone https://github.com/Mcalinn/Mcalinn.git /var/www/java-app
             fi
 
             cd /var/www/java-app
