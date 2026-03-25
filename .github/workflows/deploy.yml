@@ -26,24 +26,3 @@ jobs:
 
       - name: Debug
         run: echo "${{ secrets.ZENKO1_HOST }}"  
-
-  deploy-python:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy to Python server
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.ZENKO2_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            if [ ! -d "/var/www/python-app" ]; then
-              git clone https://github.com/YOUR_USERNAME/YOUR_PYTHON_REPO.git /var/www/python-app
-            fi
-
-            cd /var/www/python-app
-            git pull
-
-            docker compose up -d --build
-            
