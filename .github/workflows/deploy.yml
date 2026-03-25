@@ -1,0 +1,46 @@
+name: Deploy to 2 servers
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-java:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Java server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER1_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            if [ ! -d "/var/www/java-app" ]; then
+              git clone https://github.com/${{ secrets.GITHUB_USERNAME }}/${{ secrets.JAVA_REPO_NAME }}.git /var/www/java-app
+            fi
+
+            cd /var/www/java-app
+            git pull
+
+            docker compose up -d --build
+
+  deploy-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Python server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER2_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            if [ ! -d "/var/www/python-app" ]; then
+              git clone https://github.com/YOUR_USERNAME/YOUR_PYTHON_REPO.git /var/www/python-app
+            fi
+
+            cd /var/www/python-app
+            git pull
+
+            docker compose up -d --build
