@@ -23,6 +23,8 @@ jobs:
 
             cd /var/www/java-app
               git pull
+            docker compose down -v
+            docker compose up -d --build
 
       - name: Debug
         run: echo "${{ secrets.ZENKO1_HOST }}"  
@@ -44,4 +46,6 @@ jobs:
             fi
 
             cd /var/www/python-app
-              git pull
+              git pull 
+            docker compose down -v
+            docker compose up -d --build
